@@ -1,6 +1,7 @@
 import 'package:app_devnology/app/modules/cadastro/controllers/cadastro_controller.dart';
 import 'package:app_devnology/app/theme/app_colors.dart';
 import 'package:app_devnology/app/theme/app_images.dart';
+import 'package:app_devnology/app/widgtes/appbar_widgets.dart';
 import 'package:app_devnology/app/widgtes/cadastro_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,18 +12,7 @@ class CadastroPage extends GetView<CadastroController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primary,
-        title: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 40),
-              child: Image.asset(
-                AppImages.logo2,
-                fit: BoxFit.contain,
-                height: 25,
-              ),
-            ),
-          ],
-        ),
+        title: AppBarWidgets(),
       ),
       body: Container(
         child: Stack(
