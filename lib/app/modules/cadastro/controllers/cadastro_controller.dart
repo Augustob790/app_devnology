@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
+class CadastroController extends GetxController {
   final count = 0.obs;
   @override
   void onInit() {

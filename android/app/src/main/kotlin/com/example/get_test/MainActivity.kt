@@ -1,4 +1,4 @@
-package com.example.app_devnology
+package com.example.get_test
 
 import io.flutter.embedding.android.FlutterActivity
 
