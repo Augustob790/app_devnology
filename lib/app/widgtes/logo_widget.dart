@@ -1,6 +1,7 @@
 import 'package:app_devnology/app/theme/app_images.dart';
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types
 class logoWidget extends StatelessWidget {
   const logoWidget({Key? key}) : super(key: key);
 

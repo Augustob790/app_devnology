@@ -6,7 +6,10 @@ import 'package:app_devnology/app/widgtes/logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class LoginPage extends GetView<LoginController> {
+  final LoginController _loginController = Get.find<LoginController>();
+  GlobalKey _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -23,47 +26,51 @@ class LoginPage extends GetView<LoginController> {
             Positioned(
               child: Padding(
                 padding: const EdgeInsets.only(top: 196.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 80, left: 15, right: 15),
-                      child: TextField(
-                        //controller: _controllerEmail,
-                        autofocus: true,
-                        keyboardType: TextInputType.emailAddress,
-                        style: TextStyle(fontSize: 15),
-                        decoration: InputDecoration(
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 80, left: 15, right: 15),
+                        child: TextFormField(
+                          controller: _loginController.emailTextController,
+                          keyboardType: TextInputType.emailAddress,
+                          autofocus: false,
+                          style: TextStyle(fontSize: 15),
+                          decoration: InputDecoration(
                             contentPadding:
                                 EdgeInsets.only(top: 32, right: 16, left: 16),
                             hintText: "E-mail",
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15))),
+                                borderRadius: BorderRadius.circular(15)),
+                          ),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 20.0, left: 15, right: 15),
-                      child: TextField(
-                        //controller: _controllerSenha,
-                        obscureText: true,
-                        keyboardType: TextInputType.text,
-                        style: TextStyle(fontSize: 15),
-                        decoration: InputDecoration(
-                            contentPadding:
-                                EdgeInsets.only(top: 32, left: 16, right: 16),
-                            hintText: "Senha",
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15))),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            top: 20.0, left: 15, right: 15),
+                        child: TextFormField(
+                          controller: _loginController.passwordTextController,
+                          autofocus: false,
+                          obscureText: true,
+                          style: TextStyle(fontSize: 15),
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.only(top: 32, left: 16, right: 16),
+                              hintText: "Senha",
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15))),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
