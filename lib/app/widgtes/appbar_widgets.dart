@@ -8,13 +8,10 @@ class AppBarWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 40),
-          child: Image.asset(
-            AppImages.logo2,
-            fit: BoxFit.contain,
-            height: 25,
-          ),
+        Image.asset(
+          AppImages.logo2,
+          fit: BoxFit.contain,
+          height: 25,
         ),
       ],
     );

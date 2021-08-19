@@ -40,7 +40,10 @@ class CadastroPage extends GetView<CadastroController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primary,
-        title: AppBarWidgets(),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 40),
+          child: AppBarWidgets(),
+        ),
       ),
       body: Container(
         child: Stack(
