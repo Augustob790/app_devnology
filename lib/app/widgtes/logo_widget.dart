@@ -7,11 +7,9 @@ class logoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.only(top: 145, left: 48, right: 48.63),
-        child: Image.asset(AppImages.logo2),
-      ),
+    return Padding(
+      padding: const EdgeInsets.only(top: 145, left: 48, right: 48.63),
+      child: Image.asset(AppImages.logo2),
     );
   }
 }

@@ -27,7 +27,7 @@ class HomeComponents extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
               AppImages.cat3,
@@ -47,7 +47,6 @@ class HomeComponents extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text("Apprael"),
               Text("Beauty"),
@@ -78,7 +77,7 @@ class HomeComponents extends StatelessWidget {
             Image.asset(AppImages.banner),
           ],
         ),
-        Expanded(child: BottomNavigatorBarWidget()),
+        const Expanded(child: BottomNavigatorBarWidget()),
       ],
     );
   }

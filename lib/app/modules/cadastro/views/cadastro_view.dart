@@ -13,22 +13,24 @@ class CadastroPage extends GetView<CadastroController> {
 
   void validate() {
     if (formKey.currentState!.validate()) {
+      // ignore: avoid_print
       print("Validated");
     } else {
+      // ignore: avoid_print
       print("Not Validated");
     }
   }
 
   String? validateName(value) {
-    if (value.isEmpty) {
+    if (value != null) {
       return "Digite um Nome";
     } else {
       return null;
     }
   }
 
-  String? validatePass(value) {
-    if (value.isEmpty) {
+  Future<String?> validatePass(value) async {
+    if (value != null) {
       return "Digite uma Senha";
     } else {
       return null;
@@ -40,17 +42,18 @@ class CadastroPage extends GetView<CadastroController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primary,
+        // ignore: prefer_const_constructors
         title: Padding(
           padding: const EdgeInsets.only(left: 40),
-          child: LogoAppBar(),
+          child: const LogoAppBar(),
         ),
       ),
       body: Container(
         child: Stack(
           children: [
-            Positioned(
+            const Positioned(
               child: Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(15.0),
                 child: Text(
                   'Crie uma conta de acesso usando o seu e-mail como usuário',
                   style: TextStyle(
@@ -75,12 +78,11 @@ class CadastroPage extends GetView<CadastroController> {
                         child: TextFormField(
                           controller: _loginController.nameTextController,
                           keyboardType: TextInputType.name,
-                          autofocus: false,
                           validator: validateName,
-                          style: TextStyle(fontSize: 15),
+                          style: const TextStyle(fontSize: 15),
                           decoration: InputDecoration(
-                            contentPadding:
-                                EdgeInsets.only(top: 32, right: 16, left: 16),
+                            contentPadding: const EdgeInsets.only(
+                                top: 32, right: 16, left: 16),
                             hintText: "Nome",
                             filled: true,
                             fillColor: Colors.white,
@@ -97,10 +99,10 @@ class CadastroPage extends GetView<CadastroController> {
                           validator: EmailValidator(
                               errorText: "Digite um E-mail valido"),
                           keyboardType: TextInputType.emailAddress,
-                          autofocus: false,
-                          style: TextStyle(fontSize: 15),
+                          style: const TextStyle(fontSize: 15),
                           decoration: InputDecoration(
                             contentPadding:
+                                // ignore: prefer_const_constructors
                                 EdgeInsets.only(top: 32, right: 16, left: 16),
                             hintText: "Email",
                             filled: true,
@@ -115,14 +117,13 @@ class CadastroPage extends GetView<CadastroController> {
                             const EdgeInsets.only(top: 17, left: 15, right: 15),
                         child: TextFormField(
                           controller: _loginController.passwordTextController,
-                          autofocus: false,
                           obscureText: true,
                           validator: MinLengthValidator(8,
                               errorText: "Digite uma senha de 8 digitos"),
-                          style: TextStyle(fontSize: 15),
+                          style: const TextStyle(fontSize: 15),
                           decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.only(top: 32, left: 16, right: 16),
+                              contentPadding: const EdgeInsets.only(
+                                  top: 32, left: 16, right: 16),
                               hintText: "Senha",
                               filled: true,
                               fillColor: Colors.white,
@@ -140,7 +141,8 @@ class CadastroPage extends GetView<CadastroController> {
               right: 0,
               top: 30,
               child: Padding(
-                padding: EdgeInsets.only(top: 130, left: 48, right: 48.63),
+                padding:
+                    const EdgeInsets.only(top: 130, left: 48, right: 48.63),
                 child: Padding(
                   padding: const EdgeInsets.only(top: 215),
                   child: MaterialButton(
