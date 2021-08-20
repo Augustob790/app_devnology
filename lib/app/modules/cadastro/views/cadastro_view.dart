@@ -1,7 +1,7 @@
 import 'package:app_devnology/app/modules/cadastro/controllers/cadastro_controller.dart';
 import 'package:app_devnology/app/modules/login/controllers/login_controller.dart';
 import 'package:app_devnology/app/theme/app_colors.dart';
-import 'package:app_devnology/app/widgtes/appbar_widgets.dart';
+import 'package:app_devnology/app/widgtes/image_logo_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
@@ -42,7 +42,7 @@ class CadastroPage extends GetView<CadastroController> {
         backgroundColor: AppColors.primary,
         title: Padding(
           padding: const EdgeInsets.only(left: 40),
-          child: AppBarWidgets(),
+          child: LogoAppBar(),
         ),
       ),
       body: Container(
@@ -102,7 +102,7 @@ class CadastroPage extends GetView<CadastroController> {
                           decoration: InputDecoration(
                             contentPadding:
                                 EdgeInsets.only(top: 32, right: 16, left: 16),
-                            hintText: "E-mail",
+                            hintText: "Email",
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(

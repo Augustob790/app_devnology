@@ -1,8 +1,8 @@
 import 'package:app_devnology/app/theme/app_images.dart';
 import 'package:flutter/material.dart';
 
-class AppBarWidgets extends StatelessWidget {
-  const AppBarWidgets({Key? key}) : super(key: key);
+class LogoAppBar extends StatelessWidget {
+  const LogoAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
