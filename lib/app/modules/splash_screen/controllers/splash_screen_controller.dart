@@ -11,7 +11,7 @@ class SplashScreenController extends GetxController {
   }
 
   Future<void> loading() async {
-    Timer(Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 5), () {
       Get.offAndToNamed(Routes.LOGIN);
     });
   }

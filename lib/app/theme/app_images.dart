@@ -8,4 +8,6 @@ class AppImages {
   static const banner = "assets/images/banner.png";
   static const categoria = "assets/images/categorias.png";
   static const latest = "assets/images/latest.png";
+  static const check = "assets/images/check.png";
+  static const banner2 = "assets/images/banner2.png";
 }

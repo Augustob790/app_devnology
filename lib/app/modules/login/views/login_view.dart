@@ -9,18 +9,19 @@ import 'package:get/get.dart';
 // ignore: must_be_immutable
 class LoginPage extends GetView<LoginController> {
   final LoginController _loginController = Get.find<LoginController>();
-  GlobalKey _formKey = GlobalKey<FormState>();
+  final GlobalKey _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.primary,
+      // ignore: sized_box_for_whitespace
       body: Container(
         width: size.width,
         height: size.height,
         child: Stack(
           children: [
-            Positioned(
+            const Positioned(
               child: logoWidget(),
             ),
             Positioned(
@@ -29,8 +30,8 @@ class LoginPage extends GetView<LoginController> {
                 child: Form(
                   key: _formKey,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    //mainAxisAlignment: MainAxisAlignment.start,
+                    //crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Padding(
                         padding:
@@ -38,11 +39,10 @@ class LoginPage extends GetView<LoginController> {
                         child: TextFormField(
                           controller: _loginController.emailTextController,
                           keyboardType: TextInputType.emailAddress,
-                          autofocus: false,
-                          style: TextStyle(fontSize: 15),
+                          style: const TextStyle(fontSize: 15),
                           decoration: InputDecoration(
-                            contentPadding:
-                                EdgeInsets.only(top: 32, right: 16, left: 16),
+                            contentPadding: const EdgeInsets.only(
+                                top: 32, right: 16, left: 16),
                             hintText: "E-mail",
                             filled: true,
                             fillColor: Colors.white,
@@ -56,12 +56,11 @@ class LoginPage extends GetView<LoginController> {
                             top: 20.0, left: 15, right: 15),
                         child: TextFormField(
                           controller: _loginController.passwordTextController,
-                          autofocus: false,
                           obscureText: true,
-                          style: TextStyle(fontSize: 15),
+                          style: const TextStyle(fontSize: 15),
                           decoration: InputDecoration(
-                              contentPadding:
-                                  EdgeInsets.only(top: 32, left: 16, right: 16),
+                              contentPadding: const EdgeInsets.only(
+                                  top: 32, left: 16, right: 16),
                               hintText: "Senha",
                               filled: true,
                               fillColor: Colors.white,
@@ -74,7 +73,7 @@ class LoginPage extends GetView<LoginController> {
                 ),
               ),
             ),
-            Positioned(
+            const Positioned(
               left: 0,
               right: 0,
               top: 120,
@@ -83,7 +82,7 @@ class LoginPage extends GetView<LoginController> {
                 child: EntrarButtonWidget(),
               ),
             ),
-            Positioned(
+            const Positioned(
               left: 0,
               right: 0,
               top: 450,

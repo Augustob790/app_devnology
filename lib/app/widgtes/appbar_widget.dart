@@ -9,11 +9,11 @@ class AppBarWidget extends StatelessWidget {
       children: [
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.chat_bubble_outline_outlined),
+          icon: const Icon(Icons.chat_bubble_outline_outlined),
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(Icons.notifications_none),
+          icon: const Icon(Icons.notifications_none),
         ),
       ],
     );

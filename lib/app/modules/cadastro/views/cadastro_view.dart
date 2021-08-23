@@ -48,119 +48,114 @@ class CadastroPage extends GetView<CadastroController> {
           child: const LogoAppBar(),
         ),
       ),
-      body: Container(
-        child: Stack(
-          children: [
-            const Positioned(
-              child: Padding(
-                padding: EdgeInsets.all(15.0),
-                child: Text(
-                  'Crie uma conta de acesso usando o seu e-mail como usuário',
-                  style: TextStyle(
-                    fontSize: 18,
-                    textBaseline: TextBaseline.ideographic,
-                  ),
+      body: Stack(
+        children: [
+          const Positioned(
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Text(
+                'Crie uma conta de acesso usando o seu e-mail como usuário',
+                style: TextStyle(
+                  fontSize: 18,
+                  textBaseline: TextBaseline.ideographic,
                 ),
               ),
             ),
-            Positioned(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 60.0),
-                child: Form(
-                  key: formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 55, left: 15, right: 15),
-                        child: TextFormField(
-                          controller: _loginController.nameTextController,
-                          keyboardType: TextInputType.name,
-                          validator: validateName,
-                          style: const TextStyle(fontSize: 15),
-                          decoration: InputDecoration(
+          ),
+          Positioned(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 60.0),
+              child: Form(
+                key: formKey,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 55, left: 15, right: 15),
+                      child: TextFormField(
+                        controller: _loginController.nameTextController,
+                        keyboardType: TextInputType.name,
+                        validator: validateName,
+                        style: const TextStyle(fontSize: 15),
+                        decoration: InputDecoration(
+                          contentPadding: const EdgeInsets.only(
+                              top: 32, right: 16, left: 16),
+                          hintText: "Nome",
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 17, left: 15, right: 15),
+                      child: TextFormField(
+                        controller: _loginController.emailTextController,
+                        validator: EmailValidator(
+                            errorText: "Digite um E-mail valido"),
+                        keyboardType: TextInputType.emailAddress,
+                        style: const TextStyle(fontSize: 15),
+                        decoration: InputDecoration(
+                          contentPadding:
+                              // ignore: prefer_const_constructors
+                              EdgeInsets.only(top: 32, right: 16, left: 16),
+                          hintText: "Email",
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 17, left: 15, right: 15),
+                      child: TextFormField(
+                        controller: _loginController.passwordTextController,
+                        obscureText: true,
+                        validator: MinLengthValidator(8,
+                            errorText: "Digite uma senha de 8 digitos"),
+                        style: const TextStyle(fontSize: 15),
+                        decoration: InputDecoration(
                             contentPadding: const EdgeInsets.only(
-                                top: 32, right: 16, left: 16),
-                            hintText: "Nome",
+                                top: 32, left: 16, right: 16),
+                            hintText: "Senha",
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                          ),
-                        ),
+                                borderRadius: BorderRadius.circular(15))),
                       ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 17, left: 15, right: 15),
-                        child: TextFormField(
-                          controller: _loginController.emailTextController,
-                          validator: EmailValidator(
-                              errorText: "Digite um E-mail valido"),
-                          keyboardType: TextInputType.emailAddress,
-                          style: const TextStyle(fontSize: 15),
-                          decoration: InputDecoration(
-                            contentPadding:
-                                // ignore: prefer_const_constructors
-                                EdgeInsets.only(top: 32, right: 16, left: 16),
-                            hintText: "Email",
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 17, left: 15, right: 15),
-                        child: TextFormField(
-                          controller: _loginController.passwordTextController,
-                          obscureText: true,
-                          validator: MinLengthValidator(8,
-                              errorText: "Digite uma senha de 8 digitos"),
-                          style: const TextStyle(fontSize: 15),
-                          decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.only(
-                                  top: 32, left: 16, right: 16),
-                              hintText: "Senha",
-                              filled: true,
-                              fillColor: Colors.white,
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15))),
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
-            Positioned(
-              left: 0,
-              right: 0,
-              top: 30,
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 30,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 130, left: 48, right: 48.63),
               child: Padding(
-                padding:
-                    const EdgeInsets.only(top: 130, left: 48, right: 48.63),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 215),
-                  child: MaterialButton(
-                    minWidth: 120,
-                    height: 48,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    color: AppColors.buttom,
-                    onPressed: validate,
-                    splashColor: Colors.blueGrey,
-                    child: Text('Cadastrar',
-                        style: TextStyle(color: AppColors.grey, fontSize: 16)),
-                  ),
+                padding: const EdgeInsets.only(top: 215),
+                child: MaterialButton(
+                  minWidth: 120,
+                  height: 48,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  color: AppColors.buttom,
+                  onPressed: validate,
+                  splashColor: Colors.blueGrey,
+                  child: const Text('Cadastrar',
+                      style: TextStyle(color: AppColors.grey, fontSize: 16)),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

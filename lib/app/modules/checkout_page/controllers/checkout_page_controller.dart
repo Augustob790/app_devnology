@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 
-class HomeController extends GetxController {
+class CheckoutPageController extends GetxController {
+  //TODO: Implement CheckoutPageController
+
   final count = 0.obs;
 
   @override

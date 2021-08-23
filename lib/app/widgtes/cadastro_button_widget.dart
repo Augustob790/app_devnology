@@ -5,6 +5,7 @@ class CadastroButtonWidget extends StatelessWidget {
   const CadastroButtonWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_unnecessary_containers
     return Container(
       child: Padding(
         padding: const EdgeInsets.only(top: 200),
@@ -16,7 +17,7 @@ class CadastroButtonWidget extends StatelessWidget {
           color: AppColors.buttom,
           onPressed: () => {},
           splashColor: Colors.blueGrey,
-          child: Text(
+          child: const Text(
             'Cadastrar',
             style: TextStyle(
               color: AppColors.grey,

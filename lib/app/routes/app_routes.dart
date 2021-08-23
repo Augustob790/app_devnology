@@ -8,6 +8,9 @@ abstract class Routes {
   static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
   static const LOGIN = _Paths.LOGIN;
   static const CADASTRO = _Paths.CADASTRO;
+  static const DETALHES_PAGE = _Paths.DETALHES_PAGE;
+  static const CART_PAGE = _Paths.CART_PAGE;
+  static const CHECKOUT_PAGE = _Paths.CHECKOUT_PAGE;
 }
 
 abstract class _Paths {
@@ -15,4 +18,7 @@ abstract class _Paths {
   static const SPLASH_SCREEN = '/splash-screen';
   static const LOGIN = '/login';
   static const CADASTRO = '/cadastro';
+  static const DETALHES_PAGE = '/detalhes-page';
+  static const CART_PAGE = '/cart-page';
+  static const CHECKOUT_PAGE = '/checkout-page';
 }

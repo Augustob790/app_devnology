@@ -15,22 +15,27 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primary,
-        title: LogoAppBar(),
+        title: const LogoAppBar(),
+        // ignore: prefer_const_literals_to_create_immutables
         actions: [
-          AppBarWidget(),
+          const AppBarWidget(),
         ],
       ),
+      // ignore: avoid_unnecessary_containers
       body: Container(
+        color: AppColors.backhome,
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 25, left: 25, bottom: 23),
               child: Row(
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
+                  // ignore: prefer_const_constructors
                   Text(
                     "Categories",
-                    style: TextStyle(
-                      fontSize: 35,
+                    style: const TextStyle(
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: AppColors.primary,
                     ),
@@ -40,10 +45,16 @@ class HomeView extends GetView<HomeController> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image.asset(
-                  AppImages.cat3,
+                GestureDetector(
+                  onTap: () {
+                    // ignore: avoid_print
+                    print("clicado");
+                  },
+                  child: Image.asset(
+                    AppImages.cat3,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Image.asset(
                   AppImages.cat2,
@@ -60,24 +71,27 @@ class HomeView extends GetView<HomeController> {
               padding: const EdgeInsets.only(top: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                  Text("Apprael"),
-                  Text("Beauty"),
-                  Text("Shoes"),
-                  Text("See All"),
+                  const Text("Apprael"),
+                  const Text("Beauty"),
+                  const Text("Shoes"),
+                  const Text("See All"),
                 ],
               ),
             ),
-            SizedBox(height: 22),
+            const SizedBox(height: 22),
             Padding(
               padding: const EdgeInsets.only(left: 25, bottom: 10),
               child: Row(
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
+                  // ignore: prefer_const_constructors
                   Text(
                     "Latest",
+                    // ignore: prefer_const_constructors
                     style: TextStyle(
-                      fontSize: 35,
+                      fontSize: 30,
                       fontWeight: FontWeight.bold,
                       color: AppColors.primary,
                     ),
@@ -91,7 +105,10 @@ class HomeView extends GetView<HomeController> {
                 Image.asset(AppImages.banner),
               ],
             ),
-            Expanded(child: BottomNavigatorBarWidget()),
+            const SizedBox(
+              height: 10,
+            ),
+            const Expanded(child: BottomNavigatorBarWidget()),
           ],
         ),
       ),

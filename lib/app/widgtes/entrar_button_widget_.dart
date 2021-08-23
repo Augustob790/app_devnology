@@ -15,10 +15,10 @@ class EntrarButtonWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         color: AppColors.buttom,
         onPressed: () => {
-          Get.offAndToNamed(Routes.HOME),
+          Get.toNamed(Routes.HOME),
         },
         splashColor: Colors.blueGrey,
-        child: Text(
+        child: const Text(
           'Entrar',
           style: TextStyle(
             color: AppColors.grey,

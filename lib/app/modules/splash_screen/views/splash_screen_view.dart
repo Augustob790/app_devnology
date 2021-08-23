@@ -13,7 +13,6 @@ class SplashScreenView extends GetView<SplashScreenController> {
       backgroundColor: AppColors.primary,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 15),
@@ -21,7 +20,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
               child: Image.asset(AppImages.logo2),
             ),
           ),
-          CircularProgressIndicator(),
+          const CircularProgressIndicator(),
         ],
       ),
     );
