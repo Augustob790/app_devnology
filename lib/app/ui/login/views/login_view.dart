@@ -92,7 +92,7 @@ class LoginPage extends GetView<LoginController> {
               top: 120,
               child: Padding(
                 padding:
-                    const EdgeInsets.only(top: 130, left: 48, right: 48.63),
+                    const EdgeInsets.only(top: 450, left: 48, right: 48.63),
                 child: MaterialButton(
                   minWidth: 120,
                   height: 48,
