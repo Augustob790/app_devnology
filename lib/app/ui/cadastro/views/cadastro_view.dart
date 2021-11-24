@@ -1,10 +1,12 @@
-import 'package:app_devnology/app/modules/cadastro/controllers/cadastro_controller.dart';
-import 'package:app_devnology/app/modules/login/controllers/login_controller.dart';
+import 'package:app_devnology/app/presentation/navigator/app_pages.dart';
 import 'package:app_devnology/app/theme/app_colors.dart';
+import 'package:app_devnology/app/ui/cadastro/controllers/cadastro_controller.dart';
+import 'package:app_devnology/app/ui/login/controllers/login_controller.dart';
 import 'package:app_devnology/app/widgtes/image_logo_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 
 // ignore: must_be_immutable
 class CadastroPage extends GetView<CadastroController> {
@@ -36,6 +38,10 @@ class CadastroPage extends GetView<CadastroController> {
       return null;
     }
   }
+
+  String name = '';
+  String email = '';
+  String password = '';
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +79,9 @@ class CadastroPage extends GetView<CadastroController> {
                       padding:
                           const EdgeInsets.only(top: 55, left: 15, right: 15),
                       child: TextFormField(
+                        onChanged: (text) {
+                          name = text;
+                        },
                         controller: _loginController.nameTextController,
                         keyboardType: TextInputType.name,
                         validator: validateName,
@@ -92,6 +101,9 @@ class CadastroPage extends GetView<CadastroController> {
                       padding:
                           const EdgeInsets.only(top: 17, left: 15, right: 15),
                       child: TextFormField(
+                        onChanged: (text) {
+                          email = text;
+                        },
                         controller: _loginController.emailTextController,
                         validator: EmailValidator(
                             errorText: "Digite um E-mail valido"),
@@ -113,6 +125,9 @@ class CadastroPage extends GetView<CadastroController> {
                       padding:
                           const EdgeInsets.only(top: 17, left: 15, right: 15),
                       child: TextFormField(
+                        onChanged: (text) {
+                          password = text;
+                        },
                         controller: _loginController.passwordTextController,
                         obscureText: true,
                         validator: MinLengthValidator(8,
@@ -147,7 +162,22 @@ class CadastroPage extends GetView<CadastroController> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   color: AppColors.buttom,
-                  onPressed: validate,
+                  onPressed: () async {
+                    var url =
+                        Uri.parse('http://192.168.1.101:8080/api/v1/register');
+                    print(url);
+                    var response = await http.post(url, body: {
+                      "name": name,
+                      "username": email,
+                      "email": email,
+                      "password": password,
+                      "password2": password
+                    });
+                    //print(json['token']);
+                    if (response.statusCode == 200) {
+                      Get.offAndToNamed(Routes.DETALHES_PAGE);
+                    }
+                  },
                   splashColor: Colors.blueGrey,
                   child: const Text('Cadastrar',
                       style: TextStyle(color: AppColors.grey, fontSize: 16)),

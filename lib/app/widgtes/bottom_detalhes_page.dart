@@ -1,4 +1,4 @@
-import 'package:app_devnology/app/routes/app_pages.dart';
+import 'package:app_devnology/app/presentation/navigator/app_pages.dart';
 import 'package:app_devnology/app/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

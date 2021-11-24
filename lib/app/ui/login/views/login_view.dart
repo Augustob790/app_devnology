@@ -1,15 +1,22 @@
-import 'package:app_devnology/app/modules/login/controllers/login_controller.dart';
+import 'package:app_devnology/app/presentation/navigator/app_pages.dart';
+
 import 'package:app_devnology/app/theme/app_colors.dart';
+import 'package:app_devnology/app/ui/login/controllers/login_controller.dart';
 import 'package:app_devnology/app/widgtes/button_widget_text.dart';
 import 'package:app_devnology/app/widgtes/entrar_button_widget_.dart';
 import 'package:app_devnology/app/widgtes/logo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 
 // ignore: must_be_immutable
 class LoginPage extends GetView<LoginController> {
   final LoginController _loginController = Get.find<LoginController>();
   final GlobalKey _formKey = GlobalKey<FormState>();
+
+  String email = '';
+  String password = '';
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -37,6 +44,9 @@ class LoginPage extends GetView<LoginController> {
                         padding:
                             const EdgeInsets.only(top: 80, left: 15, right: 15),
                         child: TextFormField(
+                          onChanged: (text) {
+                            email = text;
+                          },
                           controller: _loginController.emailTextController,
                           keyboardType: TextInputType.emailAddress,
                           style: const TextStyle(fontSize: 15),
@@ -55,6 +65,9 @@ class LoginPage extends GetView<LoginController> {
                         padding: const EdgeInsets.only(
                             top: 20.0, left: 15, right: 15),
                         child: TextFormField(
+                          onChanged: (text) {
+                            password = text;
+                          },
                           controller: _loginController.passwordTextController,
                           obscureText: true,
                           style: const TextStyle(fontSize: 15),
@@ -73,13 +86,36 @@ class LoginPage extends GetView<LoginController> {
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               left: 0,
               right: 0,
               top: 120,
               child: Padding(
-                padding: EdgeInsets.only(top: 130, left: 48, right: 48.63),
-                child: EntrarButtonWidget(),
+                padding:
+                    const EdgeInsets.only(top: 130, left: 48, right: 48.63),
+                child: MaterialButton(
+                  minWidth: 120,
+                  height: 48,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  color: AppColors.buttom,
+                  onPressed: () async {
+                    // var url =
+                    //     Uri.parse('http://192.168.1.101:8080/api/v1/login');
+                    // print(url);
+                    // var response = await http.post(url,
+                    //     body: {"username": email, "password": password});
+                    // final json = jsonDecode(response.body);
+                    // //print(json['token']);
+                    // if (response.statusCode == 200 && json.containsKey("token")) {
+                    //   Get.offAndToNamed(Routes.HOME);
+                    // }
+                    Get.offAndToNamed(Routes.HOME);
+                  },
+                  splashColor: Colors.blueGrey,
+                  child: const Text('Cadastrar',
+                      style: TextStyle(color: AppColors.grey, fontSize: 16)),
+                ),
               ),
             ),
             const Positioned(

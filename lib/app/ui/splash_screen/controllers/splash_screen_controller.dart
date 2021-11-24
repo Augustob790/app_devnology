@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:app_devnology/app/routes/app_pages.dart';
+import 'package:app_devnology/app/presentation/navigator/app_pages.dart';
 import 'package:get/get.dart';
 
 class SplashScreenController extends GetxController {
